@@ -10,9 +10,4 @@
 
 @interface FavoritesViewController : UIViewController
 
-@property (nonatomic, strong) NSMutableArray *favoritesArray;
-
--(NSString *)documentsDirectory;
--(NSString *)dataFilePath;
-
 @end

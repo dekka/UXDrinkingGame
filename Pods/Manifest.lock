@@ -26,7 +26,7 @@ PODS:
   - TransitionKit (2.1.0)
 
 DEPENDENCIES:
-  - RestKit (~> 0.24.0)
+  - RestKit
 
 SPEC CHECKSUMS:
   AFNetworking: 80c4e0652b08eb34e25b9c0ff3c82556fe5967b4

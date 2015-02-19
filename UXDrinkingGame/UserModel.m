@@ -8,41 +8,36 @@
 
 #import "UserModel.h"
 #import "HomeViewController.h"
-#import "FavoritesViewController.h"
 
-@interface UserModel () <NSCoding>
-
-@property (nonatomic, strong) FavoritesViewController *favoritesVC;
+@interface UserModel ()
 
 @end
 
 @implementation UserModel
 
-- (id)init {
-    if (self) {
-        self = [super init];
+- (instancetype)initAndUnarchive {
+    if (self = [super init]) {
+        self.favoritesArray = [NSKeyedUnarchiver unarchiveObjectWithFile:[self dataFilePath]];
     }
-    if (!self.favoritesVC) {
-        self.favoritesVC = [FavoritesViewController new];
-    }
+    
     return self;
 }
 
-- (id)initWithCoder:(NSCoder *)aDecoder {
-    return nil;
-}
-
--(id)encodeWithCoder:(NSCoder *)aCoder {
-    return nil;
-}
-
-
 - (void)saveFavoritesArray {
-    [NSKeyedArchiver archiveRootObject:self.favoritesArray toFile:[self.favoritesVC dataFilePath]];
+    [NSKeyedArchiver archiveRootObject:self.favoritesArray toFile:[self dataFilePath]];
 }
 
--(void)addToFavorites {
-//    [self.favoritesArray addObject:self.homeVC.drinkTextView.text];
+- (NSString *)documentsDirectory
+{
+    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+    NSString *documentsDirectory = [paths firstObject];
+    return documentsDirectory;
 }
+
+- (NSString *)dataFilePath
+{
+    return [[self documentsDirectory] stringByAppendingPathComponent:@"UXDFavorites.plist"];
+}
+
 
 @end

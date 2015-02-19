@@ -9,7 +9,7 @@
 #import "FavoritesViewController.h"
 #import "HomeViewController.h"
 #import "DrinkEvent.h"
-#import "UserModel.h"
+#import "TabBarViewController.h"
 
 @interface FavoritesViewController () <UITableViewDataSource, UITableViewDelegate, NSCoding>
 
@@ -29,44 +29,26 @@
     
     self.title = @"Favorites";
     
-    self.model = [NSKeyedUnarchiver unarchiveObjectWithFile:[self dataFilePath]];
-    
-    if (!self.favoritesArray) {
-        self.favoritesArray = [NSMutableArray new];
-    }
-    if (!self.model.favoritesArray) {
-        self.model.favoritesArray = [NSMutableArray new];
+    for (id controller in self.tabBarController.viewControllers) {
+        if ([controller isKindOfClass:[HomeViewController class]]) {
+            HomeViewController *homeVC = controller;
+            self.model = homeVC.model;
+        }
     }
     
-//    [self.favoritesArray addObject:[NSString stringWithFormat:@"test condition"]];
+    TabBarViewController *tabBarVC = (TabBarViewController *)self.tabBarController;
+    self.model = tabBarVC.userModel;
+    
 }
-
-- (NSString *)documentsDirectory
-{
-    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
-    NSString *documentsDirectory = [paths firstObject];
-    return documentsDirectory;
-}
-
-- (NSString *)dataFilePath
-{
-    return [[self documentsDirectory] stringByAppendingPathComponent:@"UXDFavorites.plist"];
-}
-
 
 -(void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
-    self.favoritesArray = self.model.favoritesArray;
-    
     [self.tableView reloadData];
 }
 
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    if (self.favoritesArray) {
-        return self.favoritesArray.count;
-    } else {
-        return 1;
-    }
+    TabBarViewController *tabBarVC = (TabBarViewController *)self.tabBarController;
+    return tabBarVC.userModel.favoritesArray.count;
 }
 
 
@@ -74,7 +56,8 @@
     
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cell" forIndexPath:indexPath];
     
-    cell.textLabel.text = self.favoritesArray[indexPath.row];
+    TabBarViewController *tabBarVC = (TabBarViewController *)self.tabBarController;
+    cell.textLabel.text = tabBarVC.userModel.favoritesArray[indexPath.row];
     
     return cell;
 }
