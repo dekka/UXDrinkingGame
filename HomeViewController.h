@@ -6,11 +6,12 @@
 //  Copyright (c) 2014 Reed Sweeney. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
+#import "UserModel.h"
 
 @interface HomeViewController : UIViewController
 
 @property (nonatomic, strong) IBOutlet UITextView *drinkTextView;
+@property (nonatomic, retain) UserModel *model;
 
 
 @end

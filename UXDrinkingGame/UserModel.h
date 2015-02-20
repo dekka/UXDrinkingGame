@@ -6,14 +6,15 @@
 //  Copyright (c) 2015 Reed Sweeney. All rights reserved.
 //
 
-#import <Foundation/Foundation.h>
+#import "FavoritesViewController.h"
 
-@interface UserModel : NSObject <NSCoding>
+@interface UserModel : NSObject
+
+- (instancetype)initAndUnarchive;
 
 @property (nonatomic, strong) NSMutableArray *favoritesArray;
 @property (nonatomic, strong) NSString *drinkCondition;
 
 -(void)saveFavoritesArray;
--(void)addToFavorites;
 
 @end

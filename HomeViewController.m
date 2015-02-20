@@ -12,7 +12,7 @@
 #import "DrinkEvent.h"
 #import "FavoritesViewController.h"
 #import "UserModel.h"
-
+#import "TabBarViewController.h"
 #import <RestKit/RestKit.h>
 #import <Foundation/Foundation.h>
 
@@ -25,7 +25,6 @@
 @property (nonatomic, strong) NSMutableArray *searchResults;
 @property (nonatomic, retain) UISearchBar *mySearchBar;
 @property (nonatomic, retain) FavoritesViewController *favoritesVC;
-@property (nonatomic, retain) UserModel *model;
 
 @end
 
@@ -56,20 +55,12 @@
 //    }];
     [self refreshDrinkResults];
     
-    if (!self.model) {
-        self.model = [UserModel new];
-    }
+    TabBarViewController *tabBarVC = (TabBarViewController *)self.tabBarController;
+    self.model = tabBarVC.userModel;
+    
     
     if (!self.model.favoritesArray) {
         self.model.favoritesArray = [NSMutableArray new];
-    }
-    
-    if (!self.favoritesVC) {
-        self.favoritesVC = [FavoritesViewController new];
-    }
-    
-    if (!self.favoritesVC.favoritesArray) {
-        self.favoritesVC.favoritesArray = [NSMutableArray new];
     }
     
     [self setupGestureRecognizer];

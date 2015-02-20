@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>C63B40EF-0B3E-4928-8BB3-5035664A6E17</string>
+	<key>IDESourceControlProjectName</key>
+	<string>UXDrinkingGame</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>44EFDEB44C1FBFA90293703B4961BCD58E988FBF</key>
+		<string>github.com:johnnyclem/UXDrinkingGame.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>UXDrinkingGame.xcworkspace</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>44EFDEB44C1FBFA90293703B4961BCD58E988FBF</key>
+		<string>..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>github.com:johnnyclem/UXDrinkingGame.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>111</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>44EFDEB44C1FBFA90293703B4961BCD58E988FBF</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>44EFDEB44C1FBFA90293703B4961BCD58E988FBF</string>
+			<key>IDESourceControlWCCName</key>
+			<string>UXDrinkingGame</string>
+		</dict>
+	</array>
+</dict>
+</plist>
